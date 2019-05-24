@@ -1,0 +1,36 @@
+//500644178 Eric Jaskierski
+//500681845 Rudi Zhou
+//500748954 Maxim Tolkatchev
+?- canScore(R).
+R = r3
+Yes (0.00s cpu, solution 1, maybe more)
+R = r1
+Yes (0.00s cpu, solution 2, maybe more)
+R = r1
+Yes (0.00s cpu, solution 3, maybe more)
+No (0.02s cpu)
+
+
+								canScore(r3)
+							       ↓
+						hasBall(r3),pathClear(r3,goal)
+								   ↓
+								Succeeds
+													
+				  
+				  
+															canScore(r1)
+					↓↑								↓↑															↓↑
+		hasBall(r1),clearPath(r1,goal).		hasBall(R2),canAssist(R2,r1), pathClear(r1,goal).  			hasBall(R2),canAssist(R2,r1), pathClear(r1,goal).
+					↓↑								↓↑ R2=r3													↓↑ R2=r3
+				  Fails						       pathClear(r3,r1)											pathClear(r3,R3), canAssist(R3,r1).
+													↓↑															↓↑ R3=r2
+													Succeeds													pathClear(r2,r1).
+																												↓↑
+																												Succeeds	
+																												
+																												
+There are 3 results when this progam is run before it ends. r3 has the change to score once, r2 can never score and r1 has two chances to score.
+r3 can score right away because it has the ball and it has a clear path to the goal. r2 can never score because it doesn't have a clear path to the goal.
+r1 has two ways it can score, the first way is if r3 passes directly to r1 and since r1 has a clear path on goal, it can score. 
+The other way r1 can score is if r3 passes to r2 and than r2 passes to r1, since all those paths are clear, r1 will end up scoring.															

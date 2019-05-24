@@ -1,0 +1,56 @@
+//500644178 Eric Jaskierski
+//500681845 Rudi Zhou
+//500748954 Maxim Tolkatchev
+?- dc(r1, r7).
+Yes (0.00s cpu, solution 1, maybe more
+
+?- dc(r10, r6).
+No (0.00s cpu)
+
+?- related(r1, r2).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- related(r1, r3).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- related(r1, r7).
+No (0.00s cpu)
+
+?- partOf(r34, r3).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- partOf(r7, r8).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- partOf(r2, r4).
+No (0.00s cpu)
+
+?- overlaps(r14, r1).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- overlaps(r14, r4).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- overlaps(r7, r8).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- overlaps(r1, r2).
+No (0.00s cpu)
+
+?- touch(r6, r10).
+Yes (0.00s cpu)
+
+?- touch(r5, r6).
+No (0.00s cpu)
+
+?- tangentPartOf(r5, r6).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- tangentPartOf(r7, r8).
+No (0.00s cpu)
+
+?- inside(r7, r8).
+Yes (0.00s cpu, solution 1, maybe more)
+
+?- inside(r14, r1).
+No (0.00s cpu)

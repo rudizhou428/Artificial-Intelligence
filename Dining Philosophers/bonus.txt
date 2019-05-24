@@ -1,0 +1,33 @@
+/*Student#		Section#	Name*/
+/*500644178 	4			Eric Jaskierski*/
+/*500681845 	4			Rudi Zhou*/
+
+Computer: MSI 6RF Leopard Pro (2016)
+Processor: 2.6 GHz Intel Core i7-6700HQ
+Memory: 16 GB 2400 MHz DDR4
+
+
+1) Solving the bonus goal state - > goal_state(S) :- happy(p1, S), happy(p2, S), happy(p3,S).
+
+For the bonus question we added some useless statements to the program to help speed up the search process. When running the program with the bonus goal state
+we were able to find an answer in around 1 minute to resolve it with an upper bound of 13.
+
+
+?- solve_problem(X, 13).
+X = [putDown(p3, f2), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (68.72s cpu, solution 1, maybe more)
+
+
+
+2) Solving the bonus made up goal state - > goal_state(S) :- happy(p1, S), happy(p2, S), waiting(p2, S).
+
+?- solve_problem(X, 13).
+X = [putDown(p2, f1), tryToEat(p2), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (0.38s cpu, solution 1, maybe more)
+
+
+3) Solving the bonus made up goal state - > goal_state(S) :- happy(p1, S), happy(p2, S), happy(p3,S),waiting(p1, S) . 
+
+?- solve_problem(X, 13).
+X = [putDown(p3, f2), tryToEat(p3), pickUp(p3, f2), putDown(p2, f2), tryToEat(p2), pickUp(p3, f3), putDown(p1, f3), pickUp(p2, f1), putDown(p1, f1), tryToEat(p1), pickUp(p2, f2), pickUp(p1, f3), pickUp(p1, f1)]
+Yes (68.73s cpu, solution 1, maybe more)

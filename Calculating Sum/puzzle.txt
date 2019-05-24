@@ -1,0 +1,30 @@
+/*Student#		Section#	Name*/
+/*500644178 	4			Eric Jaskierski*/
+/*500681845 	4			Rudi Zhou*/
+/*500748954 	4			Maxim Tolkatchev*/
+
+"pure generate and test” 
+	?- Start is cputime, solve(L), End is cputime, Time is End - Start.
+	Start = 18.406
+	L = [3, 2, 4, 9, 1, 6, 0, 5]
+	End = 18.703
+	Time = 0.2970000000000006
+	Yes (0.30s cpu, solution 1, maybe more)
+	
+"interleaving  of generate and test"
+	?- Start is cputime, solve(L), End is cputime, Time is End - Start.
+	Start = 0.546
+	L = [3, 2, 4, 9, 1, 6, 0, 5]
+	End = 0.546
+	Time = 0.0
+	Yes (0.00s cpu, solution 1, maybe more)
+	
+	
+I started the predicate with trying to calculate 'S' because it only requires us to guess 'A' with a potential 
+carry over of 1. Logically, next we tried to solve for 'T' because it is the next letter, we did this by 
+having to guess 'M' and 'N' with a potential of another carry over. 'Y' was calculated next through the already
+guessed variables of 'A' and 'N', after that however, since 'N' more constraints, we have to actually more 
+precisely calculate its value. Lastly, since 'E' is required for 'L', we had to calculate E through its two 	
+constraints and then finally we cal the final variable 'L'. 
+
+Doing it this way made the program go from taking 0.3 seconds to taking 0.0 seconds. 

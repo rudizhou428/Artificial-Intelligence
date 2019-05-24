@@ -1,0 +1,527 @@
+/*500644178 Eric Jaskierski
+500681845 Rudi Zhou
+500748954 Maxim Tolkatchev
+*/
+
+
+1. Proving that hasBook, lives, and shipping predicates work
+
+?- hasBook(Bookstore, Author, Title, ListPrice).
+Bookstore = indigo
+Author = levesque
+Title = abcs
+ListPrice = 4.99
+Yes (0.00s cpu, solution 1, maybe more)
+Bookstore = indigo
+Author = levesque
+Title = thinking_as_computation
+ListPrice = 9.99
+Yes (0.00s cpu, solution 2, maybe more)
+Bookstore = indigo
+Author = levesque
+Title = artificial_intelligence_a_modern_approach
+ListPrice = 1.99
+Yes (0.00s cpu, solution 3, maybe more)
+Bookstore = indigo
+Author = rowling
+Title = harry_potter
+ListPrice = 666
+Yes (0.00s cpu, solution 4, maybe more)
+Bookstore = indigo
+Author = martin
+Title = a_dance_with_dragons
+ListPrice = 4.99
+Yes (0.00s cpu, solution 5, maybe more)
+Bookstore = amazon
+Author = levesque
+Title = abcs
+ListPrice = 4.99
+Yes (0.00s cpu, solution 6, maybe more)
+Bookstore = amazon
+Author = levesque
+Title = thinking_as_computation
+ListPrice = 8.99
+Yes (0.00s cpu, solution 7, maybe more)
+Bookstore = amazon
+Author = levesque
+Title = computational_intelligence
+ListPrice = 44.99
+Yes (0.00s cpu, solution 8, maybe more)
+Bookstore = amazon
+Author = levesque
+Title = artificial_intelligence_a_modern_approach
+ListPrice = 14.99
+Yes (0.02s cpu, solution 9, maybe more)
+Bookstore = amazon
+Author = rowling
+Title = harry_potter
+ListPrice = 110
+Yes (0.02s cpu, solution 10, maybe more)
+Bookstore = amazon
+Author = russell
+Title = fml
+ListPrice = 101
+Yes (0.02s cpu, solution 11, maybe more)
+Bookstore = blue
+Author = poole
+Title = poop
+ListPrice = 30
+Yes (0.02s cpu, solution 12, maybe more)
+Bookstore = blue
+Author = poole
+Title = asd
+ListPrice = 234
+Yes (0.02s cpu, solution 13, maybe more)
+Bookstore = blue
+Author = russell
+Title = zxc
+ListPrice = 737
+Yes (0.02s cpu, solution 14, maybe more)
+Bookstore = blue
+Author = russell
+Title = fml
+ListPrice = 666
+Yes (0.02s cpu, solution 15)
+
+?- lives(Person, City).
+Person = levesque
+City = tokyo
+Yes (0.00s cpu, solution 1, maybe more)
+Person = rowling
+City = london
+Yes (0.02s cpu, solution 2, maybe more)
+Person = kys
+City = newYork
+Yes (0.02s cpu, solution 3, maybe more)
+Person = martin
+City = paris
+Yes (0.02s cpu, solution 4, maybe more)
+Person = walker
+City = istanbul
+Yes (0.02s cpu, solution 5, maybe more)
+Person = galera
+City = tianjin
+Yes (0.02s cpu, solution 6, maybe more)
+Person = meng
+City = lagos
+Yes (0.02s cpu, solution 7, maybe more)
+Person = kaisar
+City = beijing
+Yes (0.02s cpu, solution 8, maybe more)
+Person = russell
+City = venice
+Yes (0.02s cpu, solution 9, maybe more)
+Person = poole
+City = toronto
+Yes (0.02s cpu, solution 10)
+
+?- shipping(Bookstore, City, Cost).
+Bookstore = indigo
+City = toronto
+Cost = 7
+Yes (0.00s cpu, solution 1, maybe more)
+Bookstore = indigo
+City = tokyo
+Cost = 23
+Yes (0.00s cpu, solution 2, maybe more)
+Bookstore = indigo
+City = shanghai
+Cost = 32
+Yes (0.00s cpu, solution 3, maybe more)
+Bookstore = indigo
+City = london
+Cost = 17
+Yes (0.00s cpu, solution 4, maybe more)
+Bookstore = indigo
+City = warsaw
+Cost = 19
+Yes (0.00s cpu, solution 5, maybe more)
+Bookstore = amazon
+City = toronto
+Cost = 1
+Yes (0.02s cpu, solution 6, maybe more)
+Bookstore = amazon
+City = tokyo
+Cost = 42
+Yes (0.02s cpu, solution 7, maybe more)
+Bookstore = amazon
+City = shanghai
+Cost = 4
+Yes (0.02s cpu, solution 8, maybe more)
+Bookstore = amazon
+City = london
+Cost = 11
+Yes (0.02s cpu, solution 9, maybe more)
+Bookstore = amazon
+City = warsaw
+Cost = 21
+Yes (0.02s cpu, solution 10)
+
+
+The 12 queries given to us to test:
+
+1. who([an,author,from,toronto], A).
+2. who([an,author,of,an,expensive,book,at,amazon], A)
+3. who([a,person, from, newYork], P).
+4. what([a,bookstore, with,a,high,shipping,to,toronto], B).
+5. what([a,shipping,from,indigo,to,toronto], C).
+6. what([a,book,from,amazon], B).
+7. what([an,expensive,book,by,russell], B).
+8. what([a,bookstore,with,an,expensive,harry_potter],B)
+9. what([a,bookstore,with,a,harry_potter,for,110],B)
+10. what([a,book,by,russell,at,amazon,with,a,high,price],B)
+11. what([a,low,price,of,a,book,by,poole], P).
+12. what([a,price,of,computational_intelligence], P).
+
+?- who([an, author, from, toronto], A).
+A = poole
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- who([an, author, of, an, expensive, book, at, amazon], A).
+A = rowling
+Yes (0.00s cpu, solution 1, maybe more)
+A = rowling
+Yes (0.00s cpu, solution 2, maybe more)
+A = rowling
+Yes (0.00s cpu, solution 3, maybe more)
+A = rowling
+Yes (0.00s cpu, solution 4, maybe more)
+A = rowling
+Yes (0.00s cpu, solution 5, maybe more)
+A = rowling
+Yes (0.02s cpu, solution 6, maybe more)
+A = rowling
+Yes (0.02s cpu, solution 7, maybe more)
+A = rowling
+Yes (0.03s cpu, solution 8, maybe more)
+A = russell
+Yes (0.03s cpu, solution 9, maybe more)
+A = russell
+Yes (0.03s cpu, solution 10, maybe more)
+A = russell
+Yes (0.03s cpu, solution 11, maybe more)
+A = russell
+Yes (0.03s cpu, solution 12, maybe more)
+A = russell
+Yes (0.03s cpu, solution 13, maybe more)
+A = russell
+Yes (0.03s cpu, solution 14, maybe more)
+A = russell
+Yes (0.03s cpu, solution 15, maybe more)
+A = russell
+Yes (0.03s cpu, solution 16, maybe more)
+A = russell
+Yes (0.03s cpu, solution 17, maybe more)
+No (0.03s cpu)
+
+?- who([a, person, from, newYork], P).
+P = kys
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- what([a, bookstore, with, a, high, shipping, to, toronto], B).
+B = indigo
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- what([a, shipping, from, indigo, to, toronto], C).
+C = 7
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- what([a, book, from, amazon], B).
+B = abcs
+Yes (0.00s cpu, solution 1, maybe more)
+B = thinking_as_computation
+Yes (0.00s cpu, solution 2, maybe more)
+B = computational_intelligence
+Yes (0.00s cpu, solution 3, maybe more)
+B = artificial_intelligence_a_modern_approach
+Yes (0.00s cpu, solution 4, maybe more)
+B = harry_potter
+Yes (0.02s cpu, solution 5, maybe more)
+B = fml
+Yes (0.02s cpu, solution 6, maybe more)
+No (0.02s cpu)
+
+?- what([an, expensive, book, by, russell], B).
+B = fml
+Yes (0.00s cpu, solution 1, maybe more)
+B = fml
+Yes (0.00s cpu, solution 2, maybe more)
+B = fml
+Yes (0.00s cpu, solution 3, maybe more)
+B = fml
+Yes (0.00s cpu, solution 4, maybe more)
+B = zxc
+Yes (0.00s cpu, solution 5, maybe more)
+B = zxc
+Yes (0.00s cpu, solution 6, maybe more)
+B = fml
+Yes (0.00s cpu, solution 7, maybe more)
+B = fml
+Yes (0.00s cpu, solution 8, maybe more)
+B = fml
+Yes (0.00s cpu, solution 9, maybe more)
+B = fml
+Yes (0.00s cpu, solution 10, maybe more)
+No (0.00s cpu)
+
+?- what([a, bookstore, with, an, expensive, harry_potter], B).
+B = indigo
+Yes (0.00s cpu, solution 1, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 2, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 3, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 4, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 5, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 6, maybe more)
+B = amazon
+Yes (0.00s cpu, solution 7, maybe more)
+B = amazon
+Yes (0.00s cpu, solution 8, maybe more)
+B = amazon
+Yes (0.00s cpu, solution 9, maybe more)
+B = amazon
+Yes (0.00s cpu, solution 10, maybe more)
+B = amazon
+Yes (0.00s cpu, solution 11, maybe more)
+B = amazon
+Yes (0.00s cpu, solution 12, maybe more)
+No (0.00s cpu)
+
+?- what([a, bookstore, with, a, harry_potter, for, 110], B).
+B = amazon
+Yes (0.00s cpu, solution 1, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 2, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 3, maybe more)
+No (0.02s cpu)
+
+?- what([a, book, by, russell, at, amazon, with, a, high, price], B).
+B = fml
+Yes (0.00s cpu, solution 1, maybe more)
+B = fml
+Yes (0.00s cpu, solution 2, maybe more)
+B = fml
+Yes (0.00s cpu, solution 3, maybe more)
+B = fml
+Yes (0.00s cpu, solution 4, maybe more)
+B = fml
+Yes (0.00s cpu, solution 5, maybe more)
+B = fml
+Yes (0.00s cpu, solution 6, maybe more)
+B = fml
+Yes (0.00s cpu, solution 7, maybe more)
+B = fml
+Yes (0.00s cpu, solution 8, maybe more)
+No (0.00s cpu)
+
+?- what([a, low, price, of, a, book, by, poole], P).
+P = 30
+Yes (0.00s cpu, solution 1, maybe more)
+P = 30
+Yes (0.02s cpu, solution 2, maybe more)
+P = 30
+Yes (0.02s cpu, solution 3, maybe more)
+P = 30
+Yes (0.02s cpu, solution 4, maybe more)
+No (0.02s cpu)
+
+?- what([a, price, of, computational_intelligence], P).
+P = 44.99
+Yes (0.00s cpu, solution 1, maybe more)
+P = 44.99
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+10 Additional noun phrases
+
+1.what([a, book, by, a, person, from, toronto], B).
+2.what([a, bookstore, with, a, shipping, to, warsaw], B).
+3.what([a, city], B).
+4.what([a, city, with, a, high, shipping], B).
+5.what([a, bookstore, with, a, book, by, martin], B).
+6.who([an, author, of, abcs], B).
+7.what([an, expensive, price, of, fml], B).
+8.who([an, author, of, a, cheap, book], B).
+9.who([an, author, of, a, book, for, 30], B).
+10.who([an, author, of, abcs, from, tokyo], B).
+
+?- what([a, book, by, a, person, from, toronto], B).
+B = asd
+Yes (0.00s cpu, solution 1, maybe more)
+B = poop
+Yes (0.02s cpu, solution 2, maybe more)
+No (0.02s cpu)
+
+?- what([a, bookstore, with, a, shipping, to, warsaw], B).
+B = indigo
+Yes (0.00s cpu, solution 1, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 2, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 3, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 4, maybe more)
+B = indigo
+Yes (0.02s cpu, solution 5, maybe more)
+B = indigo
+Yes (0.02s cpu, solution 6, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 7, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 8, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 9, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 10, maybe more)
+B = amazon
+Yes (0.02s cpu, solution 11, maybe more)
+B = amazon
+Yes (0.03s cpu, solution 12, maybe more)
+No (0.03s cpu)
+
+?- what([a, city], B).
+B = tokyo
+Yes (0.00s cpu, solution 1, maybe more)
+B = london
+Yes (0.00s cpu, solution 2, maybe more)
+B = newYork
+Yes (0.00s cpu, solution 3, maybe more)
+B = paris
+Yes (0.00s cpu, solution 4, maybe more)
+B = istanbul
+Yes (0.03s cpu, solution 5, maybe more)
+B = tianjin
+Yes (0.05s cpu, solution 6, maybe more)
+B = lagos
+Yes (0.05s cpu, solution 7, maybe more)
+B = beijing
+Yes (0.05s cpu, solution 8, maybe more)
+B = venice
+Yes (0.05s cpu, solution 9, maybe more)
+B = kyoto
+Yes (0.05s cpu, solution 10, maybe more)
+B = toronto
+Yes (0.06s cpu, solution 11, maybe more)
+B = shanghai
+Yes (0.06s cpu, solution 12, maybe more)
+B = warsaw
+Yes (0.06s cpu, solution 13, maybe more)
+No (0.08s cpu)
+
+?- what([a, city, with, a, high, shipping], B).
+B = tokyo
+Yes (0.00s cpu, solution 1, maybe more)
+B = tokyo
+Yes (0.00s cpu, solution 2, maybe more)
+B = london
+Yes (0.00s cpu, solution 3, maybe more)
+B = london
+Yes (0.00s cpu, solution 4, maybe more)
+B = toronto
+Yes (0.00s cpu, solution 5, maybe more)
+B = shanghai
+Yes (0.00s cpu, solution 6, maybe more)
+B = warsaw
+Yes (0.02s cpu, solution 7, maybe more)
+B = warsaw
+Yes (0.02s cpu, solution 8, maybe more)
+No (0.02s cpu)
+
+?- what([a, bookstore, with, a, book, by, martin], B).
+B = indigo
+Yes (0.00s cpu, solution 1, maybe more)
+B = indigo
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+?- who([an, author, of, abcs], B).
+B = levesque
+Yes (0.00s cpu, solution 1, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.02s cpu)
+
+?- who([an, author, of, a, cheap, book], B).
+B = levesque
+Yes (0.00s cpu, solution 1, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 2, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 3, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 4, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 5, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 6, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 7, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 8, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 9, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 10, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 11, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 12, maybe more)
+B = levesque
+Yes (0.01s cpu, solution 13, maybe more)
+B = martin
+Yes (0.01s cpu, solution 14, maybe more)
+B = poole
+Yes (0.01s cpu, solution 15, maybe more)
+No (0.01s cpu)
+
+?- who([an, author, of, a, book, for, 30], B).
+B = poole
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- who([an, author, of, abcs, from, tokyo], B).
+B = levesque
+Yes (0.00s cpu, solution 1, maybe more)
+B = levesque
+Yes (0.02s cpu, solution 2, maybe more)
+No (0.02s cpu)
+
+Handle the article “the”properly. 
+Queries
+1.what([a, book, by, a, person, from, toronto], B).	returns 2 books
+2.what([the, book, by, a, person, from, toronto], B). returns No
+3.who([an, author, of, abcs], B). returns levesque
+3.who([the, author, of, abcs], B). returns levesque
+
+?- what([a, book, by, a, person, from, toronto], B).
+B = asd
+Yes (0.00s cpu, solution 1, maybe more)
+B = poop
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+?- what([the, book, by, a, person, from, toronto], B).
+No (0.00s cpu)
+
+?- who([an, author, of, abcs], B).
+B = levesque
+Yes (0.00s cpu, solution 1, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.02s cpu)
+
+?- who([the, author, of, abcs], B).
+B = levesque
+Yes (0.00s cpu, solution 1, maybe more)
+B = levesque
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)

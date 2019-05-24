@@ -1,0 +1,64 @@
+/*Student#		Section#	Name*/
+/*500644178 	4			Eric Jaskierski*/
+/*500681845 	4			Rudi Zhou*/
+/*500748954 	4			Maxim Tolkatchev*/
+
+?- appendT(next(a, next(b, nil)), next(1, next(2, nil)), Result).
+Result = next(a, next(b, next(1, next(2, nil))))
+Yes (0.06s cpu)
+
+?- appendT(Init, next(1, next(2, nil)), next(a, next(b, next(1, next(2, nil))))).
+Init = next(a, next(b, nil))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- appendT(next(a, next(b, nil)), Final, next(a, next(b, next(1, next(2, nil))))).
+Final = next(1, next(2, nil))
+Yes (0.00s cpu)
+
+
+
+
+
+?- list2term([[a], [b, [c]], d], X).
+X = next(next(a, nil), next(next(b, next(next(c, nil), nil)), next(d, nil)))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+?- list2term([a, b, c], X).
+X = next(a, next(b, next(c, nil)))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- list2term([[a, [b, [c]]], d], X).
+X = next(next(a, next(next(b, next(next(c, nil), nil)), nil)), next(d, nil))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- list2term([[a, b]], X).
+X = next(next(a, next(b, nil)), nil)
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+
+
+
+
+?- list2term([[a, b]], X), flat(X, Y).
+X = next(next(a, next(b, nil)), nil)
+Y = next(a, next(b, nil))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.02s cpu)
+
+?- list2term([[[a], z], [[b, [c]], [d]]], Term), flat(Term, FlatTerm).
+Term = next(next(next(a, nil), next(z, nil)), next(next(next(b, next(next(c, nil), nil)), next(next(d, nil), nil)), nil))
+FlatTerm = next(a, next(z, next(b, next(c, next(d, nil)))))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- list2term([[k], [[l]], [m, n]], Term), flat(Term, FlatTerm).
+Term = next(next(k, nil), next(next(next(l, nil), nil), next(next(m, next(n, nil)), nil)))
+FlatTerm = next(k, next(l, next(m, next(n, nil))))
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+

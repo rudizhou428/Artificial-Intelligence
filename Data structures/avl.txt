@@ -1,0 +1,54 @@
+/*Student#		Section#	Name*/
+/*500644178 	4			Eric Jaskierski*/
+/*500681845 	4			Rudi Zhou*/
+/*500748954 	4			Maxim Tolkatchev*/
+
+avl(tree(a, tree(b, void, void), tree(c,void,void))).
+
+Yes (0.00s cpu, solution 1, maybe more) ? '
+
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+Yes (0.00s cpu, solution 3, maybe more) ? ;
+
+Yes (0.00s cpu, solution 4)
+
+
+avl(tree(a, tree(b, void, void), tree(D, tree(E,void,void), tree(F, tree(G,void,void), tree(c,void,void))))).
+
+No (0.00s cpu)
+
+avl(tree(4,tree(2,tree(1,void,void),tree(3,void,void)),tree(6,tree(5,void,void),tree(7,void,void)))).
+
+
+Yes (0.00s cpu, solution 1, maybe more) ? ;
+
+Yes (0.00s cpu, solution 2, maybe more) ? ;
+
+Yes (0.00s cpu, solution 3, maybe more) ? ;
+
+Yes (0.00s cpu, solution 4, maybe more) ? ;
+
+Yes (0.00s cpu, solution 5, maybe more) ? ;
+
+Yes (0.00s cpu, solution 6, maybe more) ? ;
+
+Yes (0.00s cpu, solution 7, maybe more) ? ;
+
+Yes (0.00s cpu, solution 8, maybe more) ? ;
+
+Yes (0.00s cpu, solution 9, maybe more) ? ;
+
+Yes (0.00s cpu, solution 10, maybe more) ? ;
+
+Yes (0.00s cpu, solution 11, maybe more) ? ;
+
+Yes (0.00s cpu, solution 12, maybe more) ? ;
+
+Yes (0.00s cpu, solution 13, maybe more) ? ;
+
+Yes (0.00s cpu, solution 14, maybe more) ? ;
+
+Yes (0.00s cpu, solution 15, maybe more) ? ;
+
+Yes (0.01s cpu, solution 16)

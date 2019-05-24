@@ -1,0 +1,109 @@
+/*Student#		Section#	Name*/
+/*500644178 	4			Eric Jaskierski*/
+/*500681845 	4			Rudi Zhou*/
+/*500748954 	4			Maxim Tolkatchev*/
+
+[P]  =  [[desk,chair | [lamp |[]]] | Q]
+
+RHS = [[desk,chair | [lamp]] | Q]
+RHS = [[desk,chair,lamp] | Q]
+LHS = [P]| []]
+[P]| []] = [[desk,chair | [lamp |[]]] | Q]
+
+Therefore this will match since you can set P to a list of 3 elements and just make variable Q an empty list
+
+P = [desk,chair,lamp]
+Q = []
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[eng | [Q | [R | S]]]  and  [R | [Q | AI721]]
+
+LHS = [eng, Q | [R | S]]
+RHS = [R, Q | AI721]
+[eng, Q | [R | S]] = [R, Q | AI721]
+
+R = eng
+Q = Q
+AI721 = [eng|S]
+
+Therefore this will match since you can make R equal eng and Q equal Q. After that you realize for R | S, the R is already
+being replaced to eng since we declared that in first match, so it becomes eng | S. This then means we can simply set variable
+AI721 to list of eng | S to match the two lists.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[[R | S], [R] | S] and [[P | Q], [Q], x, y]
+
+RHS = [[P | Q], [Q], x | [y]]
+RHS = [[P | Q], [Q] | [x | [y]]]
+[[R | S], [R] | S]  = [[P | Q], [Q] | [x | [y]]]
+
+S = [x,y]
+R = S = [x,y]
+Q = S = [x,y]
+P = S = [x,y]
+
+After transforming the right hand side, we can see that it matches the same number of elements and is in the exact same format as the 
+left hand side. Since the left hand sideare all variables we don't need to worry about it. When looking at right hand side, we need to
+find a match for constants - > x | [y]. This can be matched with S and since the remaining elements on right hand side and 
+entire left side is all variables, we can jsut set them all equal to S so they all become equal to x | [y] which simplifies to [x,y]
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[var | [[d], d]]  and  [const, X | X]
+
+LHS = [var, [d], d]
+[var, [d], d] = [const, X | X]
+
+These two lists cannot match because X will be equal to a list of d, but the two constants var and const
+have no way of matching each other so it doesn't match
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[P, Q, [a, Q]]  and  [a, b, [R | [R]]]
+
+RHS = [a, b, [R,R]]
+[P, Q, [a, Q]] = [a, b, [R,R]]
+
+These two lists cannot match because P will be equal to a, Q will be equal to b, and then you get stuck with R which cannot equal
+two different values so this fails (R cannot be equal to a while having second R in list equal to Q as it contradicts the first staement)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[Z, d | Z]  and  [[] | [d, []]]
+
+RHS = [[], d, []]
+[Z, d | Z] = [[], d, []]
+
+
+These 2 lists cannot match since it will match the first Z  equal to an empty list, however when we move to the last element, Z cannot be 
+equal a list of an empty list since its value was already set beforehand which contradicts the first statement
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[j, [k, l, m], l, m]  and  [j, [k | LIST], LIST]
+
+LHS = [j, [k, l, m] | [l, m]]
+LHS = [j, [k | [l, m]] | [l, m]]
+[j, [k | [l, m]] | [l, m]] = [j, [k | LIST], LIST]
+
+These 2 lists cannot match because LIST cannot equal both l and m, but only as a list of l and m which doesnt match the left side
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+[ryerson, P, Q | R]  and [Q | [[cs, Q] | [ryerson | P]]]
+
+RHS = [Q, [cs,Q] | [ryerson | P]]
+RHS = [Q, [cs,Q], ryerson | P]
+[ryerson, P, Q | R] = [Q, [cs,Q], ryerson | P]
+
+ 
+Q = ryerson
+P = [cs, ryerson]
+R = P = [cs, ryerson]
+
+These two lists can match since Q is equal to ryerson, P is equal to a list of cs and ryerson, and finally R is equal to P which means 
+it is also equal to a list of cs and ryerson.
